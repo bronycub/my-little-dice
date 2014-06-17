@@ -6,20 +6,19 @@ NBRE=1
 
 run_de()
 {
-#	printf "Tirage de dé…";
-#	for((i=0;i<20;i++)); do
-#		printf "[0K[16G%02d" $(($RANDOM%$TAILLE));
-#		sleep 0.05;
-#	done
-#	printf "[2K[1G";
+	for((i=0;i<20;i++)); do
+		printf "[0K[16G%02d" $(($RANDOM%$TAILLE));
+		sleep 0.05;
+	done
+	printf "[2K[1G";
 	for((i=0;i<$NBRE;i++)); do
 		printf "%02d\t" $((1+$RANDOM%$TAILLE));
 	done
 }
 
 while [ 1 ]; do
-	echo -n "taille:"; read TAILLE;
-	echo -n "nombre de dés:"; read NBRE;
+	echo -n "Taille des dés :"; read TAILLE;
+	echo -n "Nombre de dés :"; read NBRE;
 	val=" ";
 	while [ "$val" != "d" ]; do
 		run_de;
